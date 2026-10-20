@@ -1,0 +1,14 @@
+Safety briefing slides for AG Algebra (building 48)
+
+Build (needs Typst, https://typst.app; `brew install typst`):
+
+    typst compile slides.typ
+
+This writes slides.pdf. `typst watch slides.typ` rebuilds on every save.
+
+Fonts: Fira Sans and Apple Color Emoji (macOS).
+
+Layout:
+- slides.typ   slide source; set `show-todos = false` to hide TODO notes
+- img/         images used by the slides (downsized photos, crops, QR codes)
+- Material/    original photos, forms and the official slide decks
