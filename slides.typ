@@ -10,6 +10,12 @@
 
 #let show-todos = true
 
+// German lines on or off: typst compile --input german=no ...
+#let german = sys.inputs.at("german", default: "yes") != "no"
+
+// German-only content, dropped when `german` is off
+#let de(body) = if german { body }
+
 #let c-red = rgb("#c8102e")
 #let c-green = rgb("#00843d")
 #let c-blue = rgb("#1f5fa8")
@@ -24,7 +30,7 @@
     set text(size: 10pt, fill: c-de)
     box(baseline: 30%, image("img/rptu-logo.svg", height: 0.6cm))
     h(0.4cm)
-    [AG Algebra · Safety briefing / Sicherheitsunterweisung 2026]
+    [AG Algebra · Safety briefing#de[ \/ Sicherheitsunterweisung] 2026]
     h(1fr)
     counter(page).display()
   },
@@ -37,7 +43,7 @@
 // Text helpers
 
 // English line, German translation below
-#let bi(en, de) = [#en \ #text(size: 0.8em, fill: c-de, style: "italic", de)]
+#let bi(en, de) = if german [#en \ #text(size: 0.8em, fill: c-de, style: "italic", de)] else [#en]
 
 // Phone symbol and number, never split across lines
 #let phone(num) = box[☎~#num]
@@ -50,8 +56,8 @@
 #let slide(en, de, color: c-blue, body) = {
   pagebreak(weak: true)
   block(stroke: (left: 9pt + color), inset: (left: 14pt, y: 2pt), below: 0.5cm,
-    text(size: 28pt, weight: "bold", en) + linebreak()
-      + text(size: 19pt, fill: c-de, style: "italic", de))
+    text(size: 28pt, weight: "bold", en)
+      + if german { linebreak() + text(size: 19pt, fill: c-de, style: "italic", de) })
   body
 }
 
@@ -62,7 +68,7 @@
     set text(fill: white)
     grid(columns: (auto, 1fr), column-gutter: 16pt, align: horizon,
       text(size: 54pt, weight: "bold", num),
-      [#text(size: 20pt, weight: "bold", en) \ #text(size: 16pt, style: "italic", de)])
+      [#text(size: 20pt, weight: "bold", en) #if german [\ #text(size: 16pt, style: "italic", de)]])
   })
 
 #let step-badge(n, color: c-red) = box(
@@ -148,13 +154,12 @@
   columns: (1fr, 1fr),
   pad(x: 1.4cm, top: 2.2cm, bottom: 1.2cm, {
     text(size: 36pt, weight: "bold")[Safety Briefing]
-    linebreak()
-    text(size: 26pt, fill: c-de, style: "italic")[Sicherheitsunterweisung]
+    de(linebreak() + text(size: 26pt, fill: c-de, style: "italic")[Sicherheitsunterweisung])
     v(0.8cm)
     block(stroke: (left: 9pt + c-red), inset: (left: 14pt),
       text(size: 18pt)[AG Algebra, Geometrie und Computeralgebra \
-        Building 48, rooms 401–449 \
-        #text(fill: c-de, style: "italic")[Gebäude 48, Räume 401–449]])
+        Building 48, rooms 401–449
+        #de[\ #text(fill: c-de, style: "italic")[Gebäude 48, Räume 401–449]]])
     v(1fr)
     grid(columns: (1fr, auto), align: bottom,
       text(size: 16pt)[Max Horn · October 2026],
@@ -182,8 +187,8 @@
   )
   #v(1fr)
   #text(size: 13pt, fill: c-de)[
-    Required once a year (§ 12 ArbSchG, § 4 DGUV Vorschrift 1) — please sign the list at the end. \
-    _Jährliche Pflicht — bitte am Ende die Teilnahmeliste unterschreiben._]
+    Required once a year (§ 12 ArbSchG, § 4 DGUV Vorschrift 1) — please sign the list at the end.
+    #de[\ _Jährliche Pflicht — bitte am Ende die Teilnahmeliste unterschreiben._]]
 ]
 
 // ===========================================================================
@@ -203,7 +208,7 @@
         [Danach: Störungsdienst #phone[*2333*]])
     },
     {
-      text(weight: "bold")[What to say / #text(style: "italic", fill: c-de)[Was sagen?]]
+      text(weight: "bold")[What to say#de[ \/ #text(style: "italic", fill: c-de)[Was sagen?]]]
       v(0.2cm)
       grid(columns: (auto, 1fr), column-gutter: 10pt, row-gutter: 12pt,
         step-badge(1), bi([*Where?* — Building 48, floor, room], [*Wo?* — Gebäude 48, Etage, Raum]),
@@ -214,8 +219,8 @@
       v(0.3cm)
       box(fill: rgb("#f2f2f2"), inset: 10pt, radius: 4pt, width: 100%, text(size: 16pt)[
         📍 RPTU, Gottlieb-Daimler-Straße, *Gebäude 48*, 67663 Kaiserslautern \
-        #text(fill: c-de, style: "italic")[Send someone to the entrance to guide the rescuers.
-        \/ Jemanden zum Eingang schicken, der einweist.]])
+        #text(fill: c-de, style: "italic")[Send someone to the entrance to guide the rescuers.#de[
+        \/ Jemanden zum Eingang schicken, der einweist.]]])
     })
 ]
 
@@ -287,12 +292,12 @@
   #grid(columns: (auto, 1fr), column-gutter: 0.6cm,
     photo("img/IMG_4128.jpg", height: 10.3cm, marks: (
       forbidden(0.83, 0.52, 0.10),
-      label(0.83, 0.82, [No elevator! \ Kein Aufzug!]),
+      label(0.83, 0.82, [No elevator!#de[ \ Kein Aufzug!]]),
       arrow(0.54, 0.17, 0.54, 0.40, color: c-blue),
-      label(0.54, 0.12, [Our wing 401–449 · Unser Flügel], fill: c-blue),
+      label(0.54, 0.12, [Our wing 401–449#de[ · Unser Flügel]], fill: c-blue),
       arrow(0.30, 0.37, 0.05, 0.37, color: c-green),
-      label(0.20, 0.26, [Emergency exit → outside stairs \ Notausgang → Außentreppe], fill: c-green, size: 13pt),
-      label(0.17, 0.88, [Stairs: only if smoke-free \ Treppe: nur wenn rauchfrei], fill: c-orange),
+      label(0.20, 0.26, [Emergency exit → outside stairs#de[ \ Notausgang → Außentreppe]], fill: c-green, size: 13pt),
+      label(0.17, 0.88, [Stairs: only if smoke-free#de[ \ Treppe: nur wenn rauchfrei]], fill: c-orange),
     )),
     {
       photo("img/IMG_4129.jpg", height: 4.3cm, marks: (
@@ -316,7 +321,7 @@
     {
       photo("img/IMG_4110.jpg", height: 8.2cm, marks: (
         arrow(0.88, 0.95, 0.80, 0.55, color: c-green),
-        label(0.62, 0.90, [Walkway · Laufsteg], fill: c-green),
+        label(0.62, 0.90, [Walkway#de[ · Laufsteg]], fill: c-green),
       ))
       text(size: 16pt, bi([*1* Out of the window onto the walkway],
         [*1* Aus dem Fenster auf den Laufsteg]))
@@ -398,7 +403,7 @@
     photo("img/IMG_4117.jpg", height: 10.3cm, marks: (
       arrow(0.12, 0.62, 0.33, 0.62),
       arrow(0.88, 0.62, 0.67, 0.62),
-      label(0.5, 0.88, [Close automatically on alarm \ Schließen bei Alarm automatisch]),
+      label(0.5, 0.88, [Close automatically on alarm#de[ \ Schließen bei Alarm automatisch]]),
     )),
     {
       image("img/sign-smoke-door.jpg", width: 100%)
@@ -421,7 +426,7 @@
     photo("img/IMG_4114.jpg", height: 10.3cm, marks: (
       ring(0.68, 0.593, 0.09),
       ring(0.215, 0.525, 0.08),
-      label(0.30, 0.43, [Alarm button \ Druckknopfmelder], size: 12pt),
+      label(0.30, 0.43, [Alarm button#de[ \ Druckknopfmelder]], size: 12pt),
     )),
     {
       set text(size: 17pt)
@@ -597,10 +602,10 @@
     ),
     align(center, {
       image("img/qr-betriebsarzt.svg", width: 3.6cm)
-      text(size: 13pt)[Company doctor \ _Betriebsärztlicher Dienst_]
+      text(size: 13pt)[Company doctor #de[\ _Betriebsärztlicher Dienst_]]
       v(0.4cm)
       image("img/qr-bap-brille.svg", width: 3.6cm)
-      text(size: 13pt)[Check-up & screen glasses \ _Vorsorge & Bildschirmbrille_]
+      text(size: 13pt)[Check-up & screen glasses #de[\ _Vorsorge & Bildschirmbrille_]]
     }))
 ]
 
@@ -614,13 +619,13 @@
       text(size: 13pt)[AGUM: emergency organisation \ (university network / VPN only)]
     }),
     {
-      text(weight: "bold")[Department 6.4 — Occupational safety / _Arbeitssicherheit_]
+      text(weight: "bold")[Department 6.4 — Occupational safety#de[ \/ _Arbeitssicherheit_]]
       set text(size: 16pt)
       list(
-        [Safety specialists / _Fachkräfte für Arbeitssicherheit_: \
+        [Safety specialists#de[ \/ _Fachkräfte für Arbeitssicherheit_]: \
           A. Göhring, M. Knecht, M. Schalk, Dr. O. Trentmann],
-        [Company doctor / _Betriebsärztin_: K. Ewald-Kleimeier],
-        [Fire safety officer / _Brandschutzbeauftragter_: H. Deutschle],
+        [Company doctor#de[ \/ _Betriebsärztin_]: K. Ewald-Kleimeier],
+        [Fire safety officer#de[ \/ _Brandschutzbeauftragter_]: H. Deutschle],
       )
     })
 ]

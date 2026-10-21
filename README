@@ -6,6 +6,10 @@ Build (needs Typst, https://typst.app; `brew install typst`):
 
 This writes slides.pdf. `typst watch slides.typ` rebuilds on every save.
 
+English only, without the German lines:
+
+    typst compile --input german=no slides.typ slides-en.pdf
+
 Fonts: Fira Sans and Apple Color Emoji (macOS).
 
 Layout:
