@@ -588,16 +588,19 @@
     list(
       bi([*Screen work* (eyes): you are entitled to a check-up — free, voluntary, confidential],
         [*Bildschirmarbeit* (Augen): Anspruch auf Vorsorge — kostenlos, freiwillig, vertraulich]),
-      bi([Special glasses needed for screen work? The employer pays.],
-        [Spezielle Bildschirmbrille nötig? Zahlt der Arbeitgeber.]),
+      bi([Special screen glasses needed? The company doctor prescribes them, you pay the optician, Dept. 6.4 refunds you (frame up to 34~€).],
+        [Bildschirmbrille nötig? Verordnung durch die Betriebsärztin, beim Optiker zahlen, Abt. 6.4 erstattet (Gestell bis 34~€).]),
       bi([Other concerns? You may ask for a check-up at any time.],
         [Andere Beschwerden? Wunschvorsorge jederzeit möglich.]),
       bi([*Pregnant?* Tell us early — your workplace gets assessed, in confidence.],
         [*Schwanger?* Früh Bescheid geben — Arbeitsplatz wird vertraulich beurteilt.]),
     ),
     align(center, {
-      image("img/qr-betriebsarzt.svg", width: 4.5cm)
+      image("img/qr-betriebsarzt.svg", width: 3.6cm)
       text(size: 13pt)[Company doctor \ _Betriebsärztlicher Dienst_]
+      v(0.4cm)
+      image("img/qr-bap-brille.svg", width: 3.6cm)
+      text(size: 13pt)[Check-up & screen glasses \ _Vorsorge & Bildschirmbrille_]
     }))
 ]
 
