@@ -253,17 +253,18 @@
 
 #slide([Our floor], [Unsere Etage], color: c-green)[
   #grid(columns: (auto, 1fr), column-gutter: 0.8cm,
-    photo("img/floorplan-4.jpg", height: 10.3cm, marks: (
-      ring(0.148, 0.657, 0.05, color: c-green),
-      label(0.20, 0.50, [First aid + kit · Meeks], fill: c-green),
-      extinguisher(0.219, 0.879),
-      extinguisher(0.414, 0.879),
-      extinguisher(0.336, 0.738),
-      extinguisher(0.836, 0.054),
-      extinguisher(0.719, 0.306),
-      ring(0.922, 0.27, 0.05, color: c-green),
-      label(0.72, 0.18, [First aid · Fieker], fill: c-green),
-      label(0.60, 0.93, [Stairs · Elevators], fill: c-dark),
+    photo("img/floorplan-48-4.png", height: 10.3cm, marks: (
+      ring(0.153, 0.628, 0.04, color: c-green),
+      label(0.17, 0.48, [First aid + kit · Meeks], fill: c-green),
+      ring(0.939, 0.258, 0.04, color: c-green),
+      arrow(0.56, 0.258, 0.88, 0.258, color: c-green, thickness: 4pt),
+      label(0.42, 0.258, [First aid · Fieker], fill: c-green),
+      extinguisher(0.22, 0.909),
+      extinguisher(0.419, 0.909),
+      extinguisher(0.739, 0.339),
+      extinguisher(0.381, 0.72),
+      extinguisher(0.859, 0.041),
+      label(0.87, 0.955, [Stairs · Elevators], fill: c-dark, size: 13pt),
     )),
     {
       bi([*Every office window* leads to the walkway outside.],
@@ -276,7 +277,6 @@
         photo("img/IMG_4119.jpg", height: 3.8cm, marks: (ring(0.49, 0.367, 0.09, thickness: 3pt),)),
         box(fill: rgb("#fdecee"), inset: 10pt, radius: 6pt, width: 100%, text(size: 17pt,
           bi([*Which one is closest to your office?*], [*Welcher ist dem eigenen Büro am nächsten?*]))))
-      todo[better floor plan photo]
     })
 ]
 

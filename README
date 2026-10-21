@@ -12,3 +12,5 @@ Layout:
 - slides.typ   slide source; set `show-todos = false` to hide TODO notes
 - img/         images used by the slides (downsized photos, crops, QR codes)
 - Material/    original photos, forms and the official slide decks
+- tools/floorplan.sh  makes img/floorplan-48-4.png from the official
+               floor-plan PDF, with people's names removed
