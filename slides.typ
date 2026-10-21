@@ -588,8 +588,8 @@
     list(
       bi([*Screen work* (eyes): you are entitled to a check-up — free, voluntary, confidential],
         [*Bildschirmarbeit* (Augen): Anspruch auf Vorsorge — kostenlos, freiwillig, vertraulich]),
-      bi([Special screen glasses needed? The company doctor prescribes them, you pay the optician, Dept. 6.4 refunds you (frame up to 34~€).],
-        [Bildschirmbrille nötig? Verordnung durch die Betriebsärztin, beim Optiker zahlen, Abt. 6.4 erstattet (Gestell bis 34~€).]),
+      bi([Special screen glasses needed? RPTU may pay for them, partly or fully — see QR code.],
+        [Bildschirmbrille nötig? Die RPTU zahlt sie ggf. ganz oder teilweise — siehe QR-Code.]),
       bi([Other concerns? You may ask for a check-up at any time.],
         [Andere Beschwerden? Wunschvorsorge jederzeit möglich.]),
       bi([*Pregnant?* Tell us early — your workplace gets assessed, in confidence.],
