@@ -589,7 +589,7 @@
       bi([*Screen work* (eyes): you are entitled to a check-up — free, voluntary, confidential],
         [*Bildschirmarbeit* (Augen): Anspruch auf Vorsorge — kostenlos, freiwillig, vertraulich]),
       bi([Special screen glasses needed? RPTU may pay for them, partly or fully — see QR code.],
-        [Bildschirmbrille nötig? Die RPTU zahlt sie ggf. ganz oder teilweise — siehe QR-Code.]),
+        [Bildschirmbrille nötig? Die RPTU zahlt sie ggf. ganz oder teilweise — siehe #box[QR-Code].]),
       bi([Other concerns? You may ask for a check-up at any time.],
         [Andere Beschwerden? Wunschvorsorge jederzeit möglich.]),
       bi([*Pregnant?* Tell us early — your workplace gets assessed, in confidence.],
