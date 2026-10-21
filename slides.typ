@@ -143,6 +143,9 @@
   badge(bx, by, n, color: color)(w, h)
 }
 
+#let first-aid-kit(x, y) = (w, h) => centred-at(x, y, w, h,
+  box(stroke: 2pt + white, image("img/sign-first-aid.png", height: 0.65cm)))
+
 #let extinguisher(x, y) = (w, h) => centred-at(x, y, w, h,
   box(fill: white, radius: 50%, inset: 3pt, stroke: 2.5pt + c-red,
     text(font: "Apple Color Emoji", size: 15pt, "🧯")))
@@ -260,13 +263,16 @@
   #grid(columns: (auto, 1fr), column-gutter: 0.8cm,
     photo("img/floorplan-48-4.png", height: 10.3cm, marks: (
       ring(0.153, 0.628, 0.04, color: c-green),
-      label(0.17, 0.48, [First aid + kit · Meeks], fill: c-green),
+      label(0.17, 0.48, [First aid · Meeks], fill: c-green),
+      first-aid-kit(0.153, 0.628),
+      first-aid-kit(0.939, 0.165),
       ring(0.939, 0.258, 0.04, color: c-green),
       arrow(0.56, 0.258, 0.88, 0.258, color: c-green, thickness: 4pt),
       label(0.42, 0.258, [First aid · Fieker], fill: c-green),
       extinguisher(0.22, 0.909),
       extinguisher(0.419, 0.909),
       extinguisher(0.739, 0.339),
+      extinguisher(0.739, 0.463),
       extinguisher(0.381, 0.72),
       extinguisher(0.859, 0.041),
       label(0.87, 0.955, [Stairs · Elevators], fill: c-dark, size: 13pt),
@@ -275,8 +281,11 @@
       bi([*Every office window* leads to the walkway outside.],
         [*Jedes Bürofenster* führt auf den Laufsteg.])
       v(0.4cm)
-      text(size: 17pt, bi([🧯 Fire extinguishers: in every seminar and meeting room, in 419, between 428 and 429, at the end of the corridor by 416/417],
-        [🧯 Feuerlöscher: in jedem Seminar- und Besprechungsraum, in 419, zwischen 428 und 429, am Flurende bei 416/417]))
+      text(size: 17pt, bi([🧯 Fire extinguishers: in every seminar and meeting room, in 419 and 420, between 428 and 429, at the end of the corridor by 416/417],
+        [🧯 Feuerlöscher: in jedem Seminar- und Besprechungsraum, in 419 und 420, zwischen 428 und 429, am Flurende bei 416/417]))
+      v(0.2cm)
+      text(size: 17pt, bi([#box(image("img/sign-first-aid.png", height: 0.9em)) First-aid kits: 432 and 415],
+        [#box(image("img/sign-first-aid.png", height: 0.9em)) Verbandkästen: 432 und 415]))
       v(0.2cm)
       grid(columns: (auto, 1fr), column-gutter: 0.4cm, align: horizon,
         photo("img/IMG_4119.jpg", height: 3.8cm, marks: (ring(0.49, 0.367, 0.09, thickness: 3pt),)),
@@ -470,8 +479,8 @@
       text(weight: "bold", bi([First-aid kit], [Verbandkasten]))
       v(0.1cm)
       photo("img/IMG_4111.jpg", width: 100%, marks: (ring(0.513, 0.401, 0.10, color: c-green),))
-      text(size: 15pt, bi([In 48-432 (Meeks). This sign marks rooms with emergency equipment.],
-        [In 48-432 (Meeks). Dieses Zeichen markiert Räume mit Notfallausrüstung.]))
+      text(size: 15pt, bi([In 48-432 (Meeks) and 48-415. This sign marks rooms with emergency equipment.],
+        [In 48-432 (Meeks) und 48-415. Dieses Zeichen markiert Räume mit Notfallausrüstung.]))
     },
     {
       text(weight: "bold", bi([Defibrillator (AED)], [Defibrillator (AED)]))
